@@ -1,10 +1,8 @@
 import java.time.LocalDate;
-import java.util.Scanner;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 @Data
@@ -30,9 +28,10 @@ public class Empleado {
 		System.out.println("*****INGRESE LOS SIGUIENTES DATOS DEL EMPLEADO*****");
 	    System.out.println("***********RESPETANDO LAS INDICACIONES*************");
 		while (validaEntrada) {
-		      System.out.println("Ingrese el CUIT/DNI del Empleado: ");
+		      System.out.println("Ingrese el CUIT/DNI del Empleado [XX-XXXXXXX-X]: ");
 		      cuit = GestorIncidencia.scanner.nextLine();
-		      if (cuit.isEmpty())
+			  boolean isValidInput=ScannerServicio.isCuilOk(cuit);
+		      if (!isValidInput)
 		       validaEntrada=true;
 		      else validaEntrada=false;
 		}

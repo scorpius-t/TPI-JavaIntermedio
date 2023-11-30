@@ -1,10 +1,5 @@
-import java.sql.Connection;
+import java.sql.*;
 
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
 
 public class ConexionDB {
@@ -93,7 +88,7 @@ public class ConexionDB {
 //******************LISTAR SOPORTE
 public static void listarEmpleado() {
 
-	
+												//****************
 	String consulta = "select * from empleado";
 
 	ResultSet sql;
@@ -215,11 +210,17 @@ public static void listarSoporte() {
 	ResultSet sql;
 	try {
 		sql = sT.executeQuery(consulta);
-		System.out.println("campos soporte agregar y dejar bonito");
-	 	while (sql.next()) {
+		ResultSetMetaData sqlmeta=sql.getMetaData();
+		//System.out.println("campos soporte agregar y dejar bonito");
+		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+		System.out.printf("%15s %15s %15s %45s %15s %15s %15s %15s  \n",sqlmeta.getColumnName(1),sqlmeta.getColumnName(2),sqlmeta.getColumnName(3),
+				sqlmeta.getColumnName(4),sqlmeta.getColumnName(5),sqlmeta.getColumnName(6),sqlmeta.getColumnName(7),sqlmeta.getColumnName(8));
+		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+		while (sql.next()) {
 		
-	 		System.out.println(sql.getInt(1)+"\t"+sql.getString(2)+"\t"+sql.getString(3)+"\t"+sql.getString(4)+sql.getString(5)+"\t"+sql.getString(6)+sql.getString(7)+"\t"+sql.getString(8));
-		
+//	 		System.out.println(sql.getInt(1)+"\t"+sql.getString(2)+"\t"+sql.getString(3)+"\t"+sql.getString(4)+sql.getString(5)+"\t"+sql.getString(6)+sql.getString(7)+"\t"+sql.getString(8));
+			System.out.printf("%15s %15s %15s %45s %15s %15s %15s %15s  \n",sql.getInt(1),sql.getString(2),sql.getString(3),
+					sql.getString(4),sql.getString(5),sql.getString(6),sql.getString(7),sql.getString(8));
 	 	}
 		
 	} catch (SQLException e) {
