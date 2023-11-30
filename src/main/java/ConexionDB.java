@@ -94,11 +94,18 @@ public static void listarEmpleado() {
 	ResultSet sql;
 	try {
 		sql = sT.executeQuery(consulta);
-		System.out.println("campos EMPELADO agregar y dejar bonito");
-	 	while (sql.next()) {
-		
-	 		System.out.println(sql.getInt(1)+"\t"+sql.getString(2)+"\t"+sql.getString(3)+
-	 				"\t"+sql.getString(4)+sql.getString(5)+"\t"+sql.getString(6)+sql.getString(7)+"\t"+sql.getString(8));
+		ResultSetMetaData sqlmeta=sql.getMetaData();
+
+		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+		System.out.printf("%15s %15s %15s %15s %15s %15s %25s %15s  \n",sqlmeta.getColumnName(1),sqlmeta.getColumnName(2),sqlmeta.getColumnName(3),
+				sqlmeta.getColumnName(4),sqlmeta.getColumnName(5),sqlmeta.getColumnName(6),sqlmeta.getColumnName(7),sqlmeta.getColumnName(8));
+		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+
+		while (sql.next()) {
+
+			System.out.printf("%15s %15s %15s %15s %15s %15s %25s %15s  \n",sql.getInt(1),sql.getString(2),sql.getString(3),
+					sql.getString(4),sql.getString(5),sql.getString(6),sql.getString(7),sql.getString(8));
 		
 	 	}
 		

@@ -17,6 +17,7 @@ public class ScannerServicio {
         System.out.println("3- Cliente - Alta.");
         System.out.println("4- Tecnico - Alta.");
         System.out.println("5- Incidente - Alta.");
+        System.out.println("6- Empleado - Lista.");
         System.out.println(" ");
         System.out.println("9- Salir.");
         System.out.println("Opción>:");

@@ -29,6 +29,9 @@ public class GestorIncidencia {
 				case "5":
 					AltaIncidente();
 					break;
+				case "6":
+					ListarEmpleado();
+					break;
 				case "9":
 					break;
 				default:
@@ -141,6 +144,23 @@ public class GestorIncidencia {
 			//*******Instancia un incidente nvo
 			Incidente inc1 = Incidente.altaIncidente();
 			ConexionDB.altaIncidenteDB(inc1);
+
+		}
+		catch(Exception obj) {
+
+			System.out.println("Error en ABM de la base de datos MAIN");
+			System.out.println(obj.fillInStackTrace());
+		}
+	}
+	private static void ListarEmpleado(){
+		try {
+
+			ConexionDB.conexionDB();
+
+
+			ConexionDB.listarEmpleado();
+
+
 
 		}
 		catch(Exception obj) {
