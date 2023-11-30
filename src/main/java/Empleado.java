@@ -30,9 +30,10 @@ public class Empleado {
 		System.out.println("*****INGRESE LOS SIGUIENTES DATOS DEL EMPLEADO*****");
 	    System.out.println("***********RESPETANDO LAS INDICACIONES*************");
 		while (validaEntrada) {
-		      System.out.println("Ingrese el CUIT/DNI del Empleado: ");
+		      System.out.println("Ingrese el CUIT/DNI del Empleado [XX-XXXXXXX-X]: ");
 		      cuit = GestorIncidencia.scanner.nextLine();
-		      if (cuit.isEmpty())
+			  boolean regex=ScannerServicio.checkCUIL(cuit);
+		      if (!regex)
 		       validaEntrada=true;
 		      else validaEntrada=false;
 		}
